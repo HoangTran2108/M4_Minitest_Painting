@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head th:replace="/layout :: head">
+    <title>Paintings List</title>
+</head>
+<body>
+<h3>Paintings List</h3>
+<p>
+    <a th:href="@{/painting/create}">
+        Add new painting
+    </a>
+</p>
+
+<br>
+<table class="paintings">
+    <thead>
+    <tr>
+        <th>Code</th>
+        <th>Height</th>
+        <th>Weight</th>
+        <th>Material</th>
+        <th>Describe</th>
+        <th>Price</th>
+        <th>Update</th>
+        <th>Delete</th>
+        <th>View</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="painting: ${paintings}">
+        <td th:text="${painting.code}"></td>
+        <td th:text="${painting.height}"></td>
+        <td th:text="${painting.weight}"></td>
+        <td th:text="${painting.material}"></td>
+        <td th:text="${painting.describe}"></td>
+        <td th:text="${painting.price}"></td>
+        <td><a th:href="@{/painting/{id}/edit(id=${painting.getId()})}">update</a></td>
+        <td><a onclick="confirmDel()" th:href="@{/painting/delete(id=${painting.getId()})}">delete</a></td>
+        <td><a th:href="@{/painting/{id}/view(id=${painting.getId()})}">view</a></td>
+    </tr>
+    </tbody>
+</table>
+<footer th:replace="/layout :: footer"></footer>
+<script>
+    function confirmDel() {
+        if (confirm("are you sure ?")) {
+            window.location = "redirect:/paintings";
+        }
+    }
+</script>
+</body>
+</html>

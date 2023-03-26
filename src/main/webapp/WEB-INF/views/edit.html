@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<h3>Edit Painting</h3>
+<p>
+    <a th:href="@{/painting}">
+        Back to painting list
+    </a>
+</p>
+<div id="form">
+    <form th:action="@{/painting/update}" th:object="${painting}"
+          method="POST" novalidate="novalidate">
+        <input type="hidden" th:field="*{id}"/>
+        <div>
+            <span>Code: </span>
+            <input type="text" th:field="*{code}">
+        </div>
+        <div>
+            <span>Height: </span>
+            <input type="text" th:field="*{height}">
+        </div>
+        <div>
+            <span>Weight: </span>
+            <input type="text" th:field="*{weight}">
+        </div>
+        <div>
+            <span>Material: </span>
+            <input type="text" th:field="*{material}">
+        </div>
+        <div>
+            <span>Describe: </span>
+            <input type="text" th:field="*{describe}">
+        </div>
+        <div>
+            <span>Price: </span>
+            <input type="text" th:field="*{price}">
+        </div>
+        <input style="margin: auto" type="submit" value="Edit"/>
+    </form>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head"></head>
+<body>
+<h3>Painting</h3>
+<p>
+    <a th:href="@{/painting}">
+        Back to painting list
+    </a>
+</p>
+<ul>
+    <li><label>Code:</label>
+        <label th:text="${painting.code}"></label></li>
+    <li><label>Height:</label>
+        <label th:text="${painting.height}"></label></li>
+    <li><label>Weight:</label>
+        <label th:text="${painting.weight}"></label></li>
+    <li><label>Material:</label>
+        <label th:text="${painting.material}"></label></li>
+    <li><label>Price:</label>
+        <label th:text="${painting.price}"></label></li>
+    <li><label>Describe:</label>
+        <label th:text="${painting.describe}"></label></li>
+</ul>
+</body>
+<footer th:replace="/layout :: footer"></footer>
+</html>
